@@ -1,0 +1,30 @@
+.tokenCard {
+    flex: 1;
+    background: #ffffff 0% 0% no-repeat padding-box;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tokenIcon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    background: #e6e6e6 0% 0% no-repeat padding-box;
+    margin-bottom: 32px;
+}
+
+.tokenName {
+    font: normal normal normal 16px/19px Helvetica;
+    letter-spacing: 0px;
+    color: #000000;
+    margin-bottom: 8px;
+}
+
+.tokenTicker {
+    font: normal normal bold 14px/17px Helvetica;
+    letter-spacing: 0px;
+    color: #a8a8a8;
+}

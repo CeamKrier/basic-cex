@@ -1,0 +1,62 @@
+[
+    {
+        "tokenName": "Bitcoin",
+        "tokenTicker": "BTC",
+        "tokenIconName": ""
+    },
+    {
+        "tokenName": "Ethereum",
+        "tokenTicker": "ETH",
+        "tokenIconName": ""
+    },
+    {
+        "tokenName": "Tether",
+        "tokenTicker": "USDT",
+        "tokenIconName": ""
+    },
+    {
+        "tokenName": "USD Coin",
+        "tokenTicker": "USDC",
+        "tokenIconName": ""
+    },
+    {
+        "tokenName": "BNB",
+        "tokenTicker": "BNB",
+        "tokenIconName": ""
+    },
+    {
+        "tokenName": "Cardano",
+        "tokenTicker": "ADA",
+        "tokenIconName": ""
+    },
+    {
+        "tokenName": "Ripple",
+        "tokenTicker": "XRP",
+        "tokenIconName": ""
+    },
+    {
+        "tokenName": "Binance USD",
+        "tokenTicker": "BUSD",
+        "tokenIconName": ""
+    },
+    {
+        "tokenName": "Solana",
+        "tokenTicker": "SOL",
+        "tokenIconName": ""
+    },
+    {
+        "tokenName": "Dogecoin",
+        "tokenTicker": "DOGE",
+        "tokenIconName": ""
+    },
+    {
+        "tokenName": "Polkadot",
+        "tokenTicker": "DOT",
+        "tokenIconName": ""
+    },
+    {
+        "tokenName": "TRON",
+        "tokenTicker": "TRX",
+        "tokenIconName": ""
+    }
+]
