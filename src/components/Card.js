@@ -1,6 +1,6 @@
 import React from "react";
 
-import "../styles/component-card.css";
+import "../styles/components/card.css";
 
 const TOKEN_TO_SOURCE = {};
 
