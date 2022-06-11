@@ -2,6 +2,7 @@ import { useState } from "react";
 import Button from "../components/Button";
 
 import CardList from "../components/CardList";
+import Input from "../components/Input";
 import Layout from "../components/Layout";
 import Navbar from "../components/Navbar";
 
@@ -50,7 +51,11 @@ function Main() {
                         Login
                     </Button>
                 </div>
-                <div className={screenNumber !== 3 && "hidden"}>Screen 3</div>
+                <div className={`inputColumn ${screenNumber !== 3 && "hidden"}`}>
+                    <Input type='mail' />
+                    <Input type='phone' />
+                    <Input type='iban' />
+                </div>
                 <div className={screenNumber !== 4 && "hidden"}>Screen 4</div>
             </Layout>
         </>

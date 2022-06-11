@@ -1,9 +1,17 @@
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 .buttonControllerRow {
     margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
+}
+
+.inputColumn {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-row-gap: 32px;
+    width: 500px;
 }

@@ -1,0 +1,93 @@
+.country-picker {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff 0% 0% no-repeat padding-box;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border: 0;
+    font: normal normal normal 16px/19px Helvetica;
+    letter-spacing: 0px;
+    padding: 22px 16px;
+    margin-right: -2px;
+    border-style: solid;
+    cursor: pointer;
+}
+
+.country-picker:focus-visible {
+    outline: 0;
+    border-color: #2789eb;
+}
+
+.country-picker:disabled {
+    background: #f7f7f7 0% 0% no-repeat padding-box;
+    border-color: #e3e2e2;
+}
+
+.country-flag {
+    width: 29px;
+    margin-right: 8px;
+}
+
+.phone-extension {
+    font: normal normal normal 16px/19px Helvetica;
+    letter-spacing: 0px;
+    color: #000000;
+    margin-right: 8px;
+}
+
+.country-name {
+    font: normal normal normal 16px/19px Helvetica;
+    letter-spacing: 0px;
+    color: #000000;
+    margin-left: 12px;
+}
+
+.country-picker-modal-overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 10000;
+}
+
+.country-picker-modal {
+    background-color: #fff;
+    width: 20rem;
+    padding: 0 2rem 2rem;
+    border-radius: 0.4rem;
+    z-index: 10000;
+    height: 50%;
+}
+
+.country-picker-modal-header {
+    margin-top: 1rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+    line-height: 2.4rem;
+    font-weight: bold;
+}
+
+.country-picker-modal-header > .modal-close-button {
+    cursor: pointer;
+}
+
+.country-pick-row {
+    padding: 1rem;
+    border-radius: 0.4rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.country-pick-row:hover {
+    background: #e1e1e1;
+}
