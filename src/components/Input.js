@@ -71,7 +71,7 @@ const Input = ({ type, disabled }) => {
     return (
         <div className='inputWrapper'>
             <span className='inputTitle'>{selectedType.title}</span>
-            <div className={`input-group ${inputValidationResult ? inputValidationResult : ""} ${disabled ? "disabled" : ""}`}>
+            <div className={`input-group ${inputValidationResult && !disabled ? inputValidationResult : ""} ${disabled ? "disabled" : ""}`}>
                 {type === "phone" && <CountryCodePicker onPick={handleCountryPick} disabled={disabled} />}
                 <input ref={inputRef} className='input' placeholder={selectedType.placeholder} onBlur={handleInputValidation} onChange={handleInputChange} disabled={disabled} />
             </div>
