@@ -22,7 +22,7 @@ const INPUT_TYPES = {
     }
 };
 
-const Input = ({ type }) => {
+const Input = ({ type, disabled }) => {
     const selectedType = INPUT_TYPES[type];
 
     const inputRef = useRef();
@@ -71,10 +71,9 @@ const Input = ({ type }) => {
     return (
         <div className='inputWrapper'>
             <span className='inputTitle'>{selectedType.title}</span>
-            <div className={`input-group ${inputValidationResult ? inputValidationResult : ""}`}>
-                {type === "phone" && <CountryCodePicker onPick={handleCountryPick} />}
-                <div className='anchor-div' />
-                <input ref={inputRef} className='input' placeholder={selectedType.placeholder} onBlur={handleInputValidation} onChange={handleInputChange} />
+            <div className={`input-group ${inputValidationResult ? inputValidationResult : ""} ${disabled ? "disabled" : ""}`}>
+                {type === "phone" && <CountryCodePicker onPick={handleCountryPick} disabled={disabled} />}
+                <input ref={inputRef} className='input' placeholder={selectedType.placeholder} onBlur={handleInputValidation} onChange={handleInputChange} disabled={disabled} />
             </div>
         </div>
     );

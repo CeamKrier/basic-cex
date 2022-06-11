@@ -13,6 +13,7 @@ const TOTAL_PAGES = 4;
 function Main() {
     const [screenNumber, setScreenNumber] = useState(2);
     const [selectedButtonState, setSelectedButtonState] = useState("focus");
+    const [isInputDisabled, setInputDisabled] = useState(false);
 
     const proceedToNextScreen = () => {
         if (screenNumber + 1 <= TOTAL_PAGES) {
@@ -28,6 +29,10 @@ function Main() {
 
     const updateButtonState = state => () => {
         setSelectedButtonState(state);
+    };
+
+    const toggleInputDisabledState = () => {
+        setInputDisabled(!isInputDisabled);
     };
 
     return (
@@ -51,10 +56,16 @@ function Main() {
                         Login
                     </Button>
                 </div>
-                <div className={`inputColumn ${screenNumber !== 3 ? "hidden" : ""}`}>
-                    <Input type='mail' />
-                    <Input type='phone' />
-                    <Input type='iban' />
+                <div className={`${screenNumber !== 3 ? "hidden" : ""}`}>
+                    <div className='buttonControllerRow'>
+                        <button onClick={toggleInputDisabledState}>{`${isInputDisabled ? "Toggle to default" : "Disable"}`}</button>
+                    </div>
+
+                    <div className='inputColumn'>
+                        <Input type='mail' disabled={isInputDisabled} />
+                        <Input type='phone' disabled={isInputDisabled} />
+                        <Input type='iban' disabled={isInputDisabled} />
+                    </div>
                 </div>
                 <div className={screenNumber !== 4 ? "hidden" : ""}>Screen 4</div>
             </Layout>

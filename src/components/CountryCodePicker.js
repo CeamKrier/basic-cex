@@ -28,7 +28,7 @@ const COUNTRY_MAPPING = {
     }
 };
 
-const CountryCodePicker = ({ onPick }) => {
+const CountryCodePicker = ({ onPick, disabled }) => {
     const [pickedCountry, setPickedCountry] = useState("TR");
     const [isPickerModalOpen, setPickerModalOpen] = useState();
 
@@ -52,7 +52,7 @@ const CountryCodePicker = ({ onPick }) => {
 
     return (
         <>
-            <button className='country-picker' onClick={handleOpenPickerModal} tabIndex='-1'>
+            <button className='country-picker' onClick={handleOpenPickerModal} tabIndex='-1' disabled={disabled}>
                 <img className='country-flag' src={COUNTRY_MAPPING[pickedCountry].flag} alt='country flag' />
                 <span className='phone-extension'>{COUNTRY_MAPPING[pickedCountry].code}</span>
                 <img src={chevronDown} alt='chevron down' />

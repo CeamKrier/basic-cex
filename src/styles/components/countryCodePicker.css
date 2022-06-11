@@ -14,6 +14,12 @@
     cursor: pointer;
 }
 
+.country-picker:disabled {
+    background: #f7f7f7 0% 0% no-repeat padding-box;
+    border-color: #e3e2e2;
+    pointer-events: none;
+}
+
 .country-flag {
     width: 29px;
     margin-right: 8px;

@@ -16,6 +16,10 @@
     border-radius: 6px;
 }
 
+.input-group.disabled {
+    pointer-events: none;
+}
+
 .input-group:hover {
     border-color: #d8d8d8;
 }
