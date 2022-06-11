@@ -14,16 +14,6 @@
     cursor: pointer;
 }
 
-.country-picker:focus-visible {
-    outline: 0;
-    border-color: #2789eb;
-}
-
-.country-picker:disabled {
-    background: #f7f7f7 0% 0% no-repeat padding-box;
-    border-color: #e3e2e2;
-}
-
 .country-flag {
     width: 29px;
     margin-right: 8px;

@@ -1,5 +1,8 @@
-import React, { useRef } from "react";
-import { AsYouType } from "libphonenumber-js";
+import React, { useRef, useState } from "react";
+import { AsYouType, isValidPhoneNumber } from "libphonenumber-js";
+import * as ibantools from "ibantools";
+
+import { validateEmail } from "../utils/validation";
 
 import "../styles/components/input.css";
 import CountryCodePicker from "./CountryCodePicker";
@@ -20,44 +23,58 @@ const INPUT_TYPES = {
 };
 
 const Input = ({ type }) => {
-    const inputRef = useRef();
-
     const selectedType = INPUT_TYPES[type];
 
-    if (!selectedType) {
-        return <></>;
-    }
+    const inputRef = useRef();
+    const [inputValidationResult, setInputValidationResult] = useState();
+    const [pickedCountry, setPickedCountry] = useState(null);
 
     const phoneNumberFormatter = rawNumber => {
-        return new AsYouType("US").input(`${rawNumber}`);
+        return new AsYouType(pickedCountry?.abbreviation || "TR").input(`${rawNumber}`);
     };
 
-    const ibanFormatter = () => {};
+    const ibanFormatter = rawText => {
+        return ibantools.friendlyFormatIBAN(rawText);
+    };
 
-    const handleInputValidation = () => {};
+    const handleInputValidation = () => {
+        if (type === "mail") {
+            const isOk = validateEmail(inputRef.current.value);
+            setInputValidationResult(Boolean(isOk) ? "input-confirmed" : "input-rejected");
+        } else if (type === "iban") {
+            const isOk = ibantools.isValidIBAN(ibantools.electronicFormatIBAN(inputRef.current.value));
+            setInputValidationResult(isOk ? "input-confirmed" : "input-rejected");
+        } else if (type === "phone") {
+            const isOk = isValidPhoneNumber(inputRef.current.value, pickedCountry?.abbreviation || "TR");
+            setInputValidationResult(Boolean(isOk) ? "input-confirmed" : "input-rejected");
+        }
+    };
 
     const handleInputChange = input => {
         const value = input.target.value;
-        console.log("value", value);
+
         if (type === "iban") {
-            //inputRef.current.value = phoneNumberFormatter();
+            inputRef.current.value = ibanFormatter(value);
         } else if (type === "phone") {
-            console.log("phoneNumberFormatter(value)", phoneNumberFormatter(value));
             inputRef.current.value = phoneNumberFormatter(value);
         }
     };
 
     const handleCountryPick = countryData => {
-        console.log(countryData);
+        setPickedCountry(countryData);
     };
+
+    if (!selectedType) {
+        return <></>;
+    }
 
     return (
         <div className='inputWrapper'>
             <span className='inputTitle'>{selectedType.title}</span>
-            <div className='input-group'>
+            <div className={`input-group ${inputValidationResult ? inputValidationResult : ""}`}>
                 {type === "phone" && <CountryCodePicker onPick={handleCountryPick} />}
                 <div className='anchor-div' />
-                <input ref={inputRef} className={`input ${type === "phone" ? "left-border-removed" : ""}`} placeholder={selectedType.placeholder} onBlur={handleInputValidation} onChange={handleInputChange} />
+                <input ref={inputRef} className='input' placeholder={selectedType.placeholder} onBlur={handleInputValidation} onChange={handleInputChange} />
             </div>
         </div>
     );

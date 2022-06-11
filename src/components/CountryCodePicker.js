@@ -11,17 +11,20 @@ const COUNTRY_MAPPING = {
     TR: {
         flag: flagTR,
         code: "+90",
-        name: "Türkiye"
+        name: "Türkiye",
+        abbreviation: "TR"
     },
     UK: {
         flag: flagUK,
         code: "+44",
-        name: "United Kingdom"
+        name: "United Kingdom",
+        abbreviation: "UK"
     },
     DE: {
         flag: flagDE,
         code: "+49",
-        name: "Deutschland"
+        name: "Deutschland",
+        abbreviation: "DE"
     }
 };
 
@@ -64,7 +67,7 @@ const CountryCodePicker = ({ onPick }) => {
                             </span>
                         </div>
                         {Object.keys(COUNTRY_MAPPING).map(countryName => (
-                            <div className='country-pick-row' onClick={handleCountryPick(countryName)}>
+                            <div key={countryName} className='country-pick-row' onClick={handleCountryPick(countryName)}>
                                 <img className='country-flag' src={COUNTRY_MAPPING[countryName].flag} alt='country flag' />
                                 <span className='phone-extension'>{COUNTRY_MAPPING[countryName].code}</span>
                                 <span className='country-name'>{COUNTRY_MAPPING[countryName].name}</span>

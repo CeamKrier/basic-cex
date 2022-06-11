@@ -34,10 +34,10 @@ function Main() {
         <>
             <Navbar onNext={proceedToNextScreen} onPrevious={proceedToPreviousScreen} />
             <Layout>
-                <div className={screenNumber !== 1 && "hidden"}>
+                <div className={screenNumber !== 1 ? "hidden" : ""}>
                     <CardList />
                 </div>
-                <div className={screenNumber !== 2 && "hidden"}>
+                <div className={screenNumber !== 2 ? "hidden" : ""}>
                     <div className='buttonControllerRow'>
                         <button onClick={updateButtonState("default")}>Default</button>
                         <button onClick={updateButtonState("hover")}>Hover</button>
@@ -51,12 +51,12 @@ function Main() {
                         Login
                     </Button>
                 </div>
-                <div className={`inputColumn ${screenNumber !== 3 && "hidden"}`}>
+                <div className={`inputColumn ${screenNumber !== 3 ? "hidden" : ""}`}>
                     <Input type='mail' />
                     <Input type='phone' />
                     <Input type='iban' />
                 </div>
-                <div className={screenNumber !== 4 && "hidden"}>Screen 4</div>
+                <div className={screenNumber !== 4 ? "hidden" : ""}>Screen 4</div>
             </Layout>
         </>
     );

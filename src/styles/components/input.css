@@ -16,7 +16,7 @@
     border-radius: 6px;
 }
 
-.input-group:hover > * {
+.input-group:hover {
     border-color: #d8d8d8;
 }
 
@@ -25,10 +25,12 @@
     outline: 0;
 }
 
-.left-border-removed {
-    border-left: none !important;
-    border-top-left-radius: 0 !important;
-    border-bottom-left-radius: 0 !important;
+.input-confirmed {
+    border-color: #40b94e;
+}
+
+.input-rejected {
+    border-color: #b94044;
 }
 
 .input {
@@ -53,12 +55,4 @@
 .input:disabled {
     background: #f7f7f7 0% 0% no-repeat padding-box;
     border-color: #e3e2e2;
-}
-
-.input-confirmed {
-    border-color: #40b94e;
-}
-
-.input-error {
-    border-color: #b94044;
 }
