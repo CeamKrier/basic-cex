@@ -12,8 +12,8 @@ import "../styles/pages/main.css";
 const TOTAL_SCREENS = 4;
 
 function Main() {
-    const [screenNumber, setScreenNumber] = useState(3);
-    const [selectedButtonState, setSelectedButtonState] = useState("focus");
+    const [screenNumber, setScreenNumber] = useState(1);
+    const [selectedButtonState, setSelectedButtonState] = useState("default");
     const [isInputDisabled, setInputDisabled] = useState(false);
 
     const proceedToNextScreen = () => {
@@ -50,14 +50,17 @@ function Main() {
                         <button onClick={updateButtonState("focus")}>Focus</button>
                         <button onClick={updateButtonState("disabled")}>Disable</button>
                     </div>
-                    <Button type='success' state={selectedButtonState}>
-                        Validate
-                    </Button>
-                    <Button type='orange' state={selectedButtonState}>
-                        Login
-                    </Button>
+                    <div className='buttonControllerRow'>
+                        <Button type='success' state={selectedButtonState}>
+                            Validate
+                        </Button>
+                        <div className='vertical-divider' />
+                        <Button type='orange' state={selectedButtonState}>
+                            Login
+                        </Button>
+                    </div>
                 </div>
-                <div className={`${screenNumber !== 3 ? "hidden" : ""}`}>
+                <div className={screenNumber !== 3 ? "hidden" : ""}>
                     <div className='buttonControllerRow'>
                         <button onClick={toggleInputDisabledState}>{`${isInputDisabled ? "Toggle to default" : "Disable"}`}</button>
                     </div>

@@ -29,6 +29,10 @@ const OrderBook = ({ isActive }) => {
         return stopStream;
     }, [isActive]);
 
+    if (!streamData) {
+        return <>Loading..</>;
+    }
+
     return (
         <div className='order-book'>
             <div className='order-book-header'>
@@ -43,8 +47,8 @@ const OrderBook = ({ isActive }) => {
                 <div className='order-table-buy-orders'>
                     {streamData?.["Buy"]
                         ?.sort((x, y) => x.Price - y.Price)
-                        ?.map(buyOrders => (
-                            <div className='order-table-row' style={{ background: `linear-gradient(90deg, rgba(255,255,255,1) ${100 - (buyOrders.Amount * 70)?.toFixed()}%, rgba(3,166,109,0.15) ${100 - (buyOrders.Amount * 70)?.toFixed()}%)` }}>
+                        ?.map((buyOrders, index) => (
+                            <div key={index} className='order-table-row' style={{ background: `linear-gradient(90deg, rgba(255,255,255,1) ${100 - (buyOrders.Amount * 70)?.toFixed()}%, rgba(3,166,109,0.15) ${100 - (buyOrders.Amount * 70)?.toFixed()}%)` }}>
                                 <span className='price'>{currencyFormatter.format(buyOrders.Price * MOCK_BTC_PRICE_IN_TRY)}</span>
                                 <span className='amount'>{buyOrders.Amount?.toFixed(4)}</span>
                                 <span className='total'>{buyOrders.Total?.toFixed(4)}</span>
@@ -62,8 +66,8 @@ const OrderBook = ({ isActive }) => {
                 <div className='order-table-sell-orders'>
                     {streamData?.["Sell"]
                         ?.sort((x, y) => x.Price - y.Price)
-                        .map(sellOrders => (
-                            <div className='order-table-row' style={{ background: `linear-gradient(90deg, rgba(255,255,255,1) ${100 - (sellOrders.Amount * 70)?.toFixed()}%, rgba(248,73,96,0.15) ${100 - (sellOrders.Amount * 70)?.toFixed()}%)` }}>
+                        .map((sellOrders, index) => (
+                            <div key={index} className='order-table-row' style={{ background: `linear-gradient(90deg, rgba(255,255,255,1) ${100 - (sellOrders.Amount * 70)?.toFixed()}%, rgba(248,73,96,0.15) ${100 - (sellOrders.Amount * 70)?.toFixed()}%)` }}>
                                 <span className='price'>{currencyFormatter.format(sellOrders.Price * MOCK_BTC_PRICE_IN_TRY)}</span>
                                 <span className='amount'>{sellOrders.Amount?.toFixed(4)}</span>
                                 <span className='total'>{sellOrders.Total?.toFixed(4)}</span>
