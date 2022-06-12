@@ -5,18 +5,19 @@ import CardList from "../components/CardList";
 import Input from "../components/Input";
 import Layout from "../components/Layout";
 import Navbar from "../components/Navbar";
+import OrderBook from "../components/OrderBook";
 
 import "../styles/pages/main.css";
 
-const TOTAL_PAGES = 4;
+const TOTAL_SCREENS = 4;
 
 function Main() {
-    const [screenNumber, setScreenNumber] = useState(2);
+    const [screenNumber, setScreenNumber] = useState(3);
     const [selectedButtonState, setSelectedButtonState] = useState("focus");
     const [isInputDisabled, setInputDisabled] = useState(false);
 
     const proceedToNextScreen = () => {
-        if (screenNumber + 1 <= TOTAL_PAGES) {
+        if (screenNumber + 1 <= TOTAL_SCREENS) {
             setScreenNumber(screenNumber + 1);
         }
     };
@@ -67,7 +68,7 @@ function Main() {
                         <Input type='iban' disabled={isInputDisabled} />
                     </div>
                 </div>
-                <div className={screenNumber !== 4 ? "hidden" : ""}>Screen 4</div>
+                <div className={screenNumber !== 4 ? "hidden" : ""}>{<OrderBook isActive={screenNumber === 4} />}</div>
             </Layout>
         </>
     );

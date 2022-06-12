@@ -6,9 +6,11 @@ function delay(delayInMs) {
     });
 }
 
-async function streamService(callBackFunc) {
-    while (true) {
-        let delayres = await delay(25);
+let isOn = false;
+
+const streamMockData = async onTick => {
+    while (isOn) {
+        await delay(25);
         let orderBook = {
             Buy: [
                 {
@@ -119,11 +121,24 @@ async function streamService(callBackFunc) {
                 }
             ]
         };
-        console.log(orderBook);
-        if (callBackFunc) {
-            callBackFunc(orderBook);
+
+        if (onTick) {
+            onTick(orderBook);
         }
+    }
+};
+
+export async function registerToStream(onTick) {
+    if (!isOn) {
+        startStream();
+        streamMockData(onTick);
     }
 }
 
-streamService();
+export const startStream = () => {
+    isOn = true;
+};
+
+export const stopStream = () => {
+    isOn = false;
+};

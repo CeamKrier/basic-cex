@@ -1,0 +1,89 @@
+.order-book {
+    background: #ffffff 0% 0% no-repeat padding-box;
+    box-shadow: 0px 6px 12px #dedede0d;
+    border-radius: 4px;
+    width: 400px;
+}
+
+.order-book-header {
+    display: flex;
+    align-items: center;
+    height: 46px;
+    font: normal normal bold 14px/17px Helvetica;
+    letter-spacing: 0px;
+    color: #000000;
+    padding: 0 18px;
+}
+
+.order-table-header {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    background: #e3e2e2 0% 0% no-repeat padding-box;
+    height: 28px;
+    font: normal normal 600 12px Inter;
+    letter-spacing: 0px;
+    color: #606060;
+    padding: 7px 18px;
+}
+
+.order-table-header > span:not(:first-child) {
+    justify-self: end;
+}
+
+.order-table-trade-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 7px 18px;
+}
+
+.order-table-trade-info > .title {
+    font: normal normal bold 16px Helvetica;
+    letter-spacing: 0px;
+    color: #9b9b9b;
+}
+
+.order-table-trade-info > .price {
+    font: normal normal bold 16px Inter;
+    letter-spacing: 0px;
+    color: #03a66d;
+}
+
+.order-table-trade-info > .change {
+    font: normal normal 600 16px Inter;
+    letter-spacing: 0px;
+    color: #03a66d;
+}
+
+.order-table-trade-info > .change > img {
+    width: 13px;
+    height: auto;
+    margin-right: 8px;
+}
+
+.order-table-trade-info > span:not(:first-child) {
+    justify-self: end;
+}
+
+.order-table-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 4px 18px;
+}
+
+.order-table-row > .price {
+    font: normal normal 600 12px Inter;
+    letter-spacing: 0px;
+    color: #03a66d;
+}
+
+.order-table-row > .amount,
+.order-table-row > .total {
+    font: normal normal 600 12px Inter;
+    letter-spacing: 0px;
+    color: #000000;
+}
+
+.order-table-row > span:not(:first-child) {
+    justify-self: end;
+}
