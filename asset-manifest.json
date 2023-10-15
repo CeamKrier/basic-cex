@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.a0fca4fd.css",
-    "main.js": "/static/js/main.8e69c09f.js",
-    "index.html": "/index.html",
-    "static/media/down-chevron.svg": "/static/media/down-chevron.59aea7a6e5535f44b4557c000a121c22.svg",
-    "static/media/up-chevron.svg": "/static/media/up-chevron.c42c4f906ee0198db8bd8c7fbfa54509.svg",
-    "main.a0fca4fd.css.map": "/static/css/main.a0fca4fd.css.map",
-    "main.8e69c09f.js.map": "/static/js/main.8e69c09f.js.map"
+    "main.css": "/basic-cex/static/css/main.a0fca4fd.css",
+    "main.js": "/basic-cex/static/js/main.3be0c50f.js",
+    "index.html": "/basic-cex/index.html",
+    "static/media/down-chevron.svg": "/basic-cex/static/media/down-chevron.59aea7a6e5535f44b4557c000a121c22.svg",
+    "static/media/up-chevron.svg": "/basic-cex/static/media/up-chevron.c42c4f906ee0198db8bd8c7fbfa54509.svg",
+    "main.a0fca4fd.css.map": "/basic-cex/static/css/main.a0fca4fd.css.map",
+    "main.3be0c50f.js.map": "/basic-cex/static/js/main.3be0c50f.js.map"
   },
   "entrypoints": [
     "static/css/main.a0fca4fd.css",
-    "static/js/main.8e69c09f.js"
+    "static/js/main.3be0c50f.js"
   ]
 }
